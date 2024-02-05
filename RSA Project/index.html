@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>File Encryption and Decryption</title>
+</head>
+<body>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".pdf">
+    <button type="submit">Encrypt File</button>
+  </form>
+
+  {% if encrypted_filename %}
+  <p>File encrypted and saved as: {{ encrypted_filename }}</p>
+  <a href="{{ url_for('download', filename=encrypted_filename) }}" download>Download Encrypted File</a>
+  {% endif %}
+
+  <form action="/decrypt" method="post">
+    <button type="submit">Decrypt File</button>
+  </form>
+
+  {% if decrypted_filename %}
+  <p>File decrypted and saved as: {{ decrypted_filename }}</p>
+  <a href="{{ url_for('download', filename=decrypted_filename) }}" download>Download Decrypted File</a>
+  {% endif %}
+</body>
+</html>

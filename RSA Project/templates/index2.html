@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Encryption and Decryption</title>
+</head>
+<body>
+    <h1>File Encryption and Decryption</h1>
+
+    <form method="POST" action="/" enctype="multipart/form-data">
+        <label for="file">Select File:</label>
+        <input type="file" name="file" id="file" required>
+        <button type="submit">Encrypt</button>
+    </form>
+
+    {% if encrypted_link %}
+        <p>Encrypted File: <a href="{{ encrypted_link }}" target="_blank">Download Encrypted File</a></p>
+    {% endif %}
+
+    {% if decrypted_link %}
+        <p>Decrypted File: <a href="{{ decrypted_link }}" target="_blank">Download Decrypted File</a></p>
+    {% endif %}
+</body>
+</html>
